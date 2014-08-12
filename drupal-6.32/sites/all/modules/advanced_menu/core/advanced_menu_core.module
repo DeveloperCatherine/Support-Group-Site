@@ -1,0 +1,134 @@
+<?php
+// $Id: advanced_menu_core.module $
+
+/**
+ * @file
+ * Provides advanced menu permissioning.
+ */
+
+/**
+ * Implementation of hook_perm().
+ */
+function advanced_menu_core_perm() {
+  return array('administer advanced menu permissions');
+}
+
+/**
+ * Implementation of hook_menu_alter().
+ */
+function advanced_menu_core_menu_alter(&$callbacks) {
+  $callbacks['admin']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin']['access arguments'] = array('administer menu', 'basic');
+  $callbacks['admin/build']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build']['access arguments'] = array('administer menu', 'basic');
+  $callbacks['admin/build/menu']['page callback'] = 'advanced_menu_core_overview_page';
+  $callbacks['admin/build/menu']['file'] = 'advanced_menu_core.admin.inc';
+  $callbacks['admin/build/menu']['file path'] = drupal_get_path('module', 'advanced_menu_core');
+  $callbacks['admin/build/menu']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu']['access arguments'] = array('administer menu', 'basic');
+  $callbacks['admin/build/menu/list']['page callback'] = 'advanced_menu_core_overview_page';
+  $callbacks['admin/build/menu/list']['file'] = 'advanced_menu_core.admin.inc';
+  $callbacks['admin/build/menu/list']['file path'] = drupal_get_path('module', 'advanced_menu_core');
+  $callbacks['admin/build/menu/list']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu/list']['access arguments'] = array('administer menu', 'basic');
+  $callbacks['admin/build/menu/add']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu/add']['access arguments'] = array('administer menu', 'admin');
+  $callbacks['admin/build/menu/settings']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu/settings']['access arguments'] = array('administer menu', 'admin');
+  $callbacks['admin/build/menu/item/%menu_link/delete']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu/item/%menu_link/delete']['access arguments'] = array('administer menu', 'edit item', 4);
+  $callbacks['admin/build/menu/item/%menu_link/edit']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu/item/%menu_link/edit']['access arguments'] = array('administer menu', 'edit item', 4);
+  $callbacks['admin/build/menu/item/%menu_link/reset']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu/item/%menu_link/reset']['access arguments'] = array('administer menu', 'edit item', 4);
+  $callbacks['admin/build/menu-customize/%menu']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu-customize/%menu']['access arguments'] = array('administer menu', 'edit menu', 3);
+  $callbacks['admin/build/menu-customize/%menu/add']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu-customize/%menu/add']['access arguments'] = array('administer menu', 'edit menu', 3);
+  $callbacks['admin/build/menu-customize/%menu/delete']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu-customize/%menu/delete']['access arguments'] = array('administer menu', 'edit menu', 3);
+  $callbacks['admin/build/menu-customize/%menu/edit']['access callback'] = 'advanced_menu_core_access';
+  $callbacks['admin/build/menu-customize/%menu/edit']['access arguments'] = array('administer menu', 'edit menu', 3);
+}
+
+/**
+ * Implementation of hook_access().
+ */
+function advanced_menu_core_access() {
+  global $user;
+
+  $args = func_get_args();
+  $retVal = user_access($args[0]);
+
+  if (module_exists('advanced_menu_menu_admin')) {
+    $roleMenus = _advanced_menu_menu_admin_menus();
+  }
+
+  if (count($args)>1) {
+    switch ($args[1]) {
+      case 'edit node':
+      case 'basic':
+        if (count($roleMenus)>0 || user_access($args[0])) {
+          $retVal = TRUE;
+        }
+        break;
+      case 'admin':
+        $retVal = user_access($args[0]);
+	break;
+      case 'edit menu':
+      case 'edit item':
+        if (isset($roleMenus)) {
+          $retval = FALSE;
+          if (isset($roleMenus[$args[2]['menu_name']])) {
+            $retVal = TRUE;
+          }
+	}
+        break;
+    }
+  }
+
+  return $retVal;
+}
+
+/**
+ * Implementation of hook_theme_registry_alter().
+ */
+function advanced_menu_core_theme_registry_alter(&$theme_registry) {
+  $theme_registry['menu_item_link']['function'] = 'theme_advanced_menu_core_item_link';
+  $theme_registry['menu_item']['function'] = 'theme_advanced_menu_core_item';
+}
+
+/**
+ * Override of theme_menu_item_link().
+ */
+function theme_advanced_menu_core_item_link($link) {
+  if (empty($link['localized_options'])) {
+    $link['localized_options'] = array();
+  }
+
+/*
+  //Check to see if this mlid has expired. If so, return '#ERR_EXPIRED' which we will check for later [in theme_advanced_menu_core_item].
+  $exp_date = db_result(db_query('SELECT expire FROM {advanced_menu_core_expire} WHERE mlid = %d', $link['mlid']));
+  if (!empty($exp_date) && ($exp_date <= time())) {
+    return '#ERR_EXPIRED';
+  }
+*/
+  return l($link['title'], $link['href'], $link['localized_options']);
+}
+
+/**
+ * Override of theme_menu_item().
+ */
+function theme_advanced_menu_core_item($link, $has_children, $menu = '', $in_active_trail = FALSE, $extra_class = NULL) {
+  $class = ($menu ? 'expanded' : ($has_children ? 'collapsed' : 'leaf'));
+  if (!empty($extra_class)) {
+    $class .= ' '. $extra_class;
+  }
+  if ($in_active_trail) {
+    $class .= ' active-trail';
+  }
+  if ($link != '#ERR_EXPIRED') {
+    return '<li class="'. $class .'">'. $link . $menu ."</li>\n";
+  }
+}
+

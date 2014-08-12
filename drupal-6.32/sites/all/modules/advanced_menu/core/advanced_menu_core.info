@@ -1,0 +1,14 @@
+; $Id: $
+name = AM Core
+description = Builds upon the menu module to enable advanced features.
+package = Advanced Menu
+dependencies[] = menu
+core = 6.x
+
+
+; Information added by drupal.org packaging script on 2011-11-08
+version = "6.x-3.1"
+core = "6.x"
+project = "advanced_menu"
+datestamp = "1320747328"
+

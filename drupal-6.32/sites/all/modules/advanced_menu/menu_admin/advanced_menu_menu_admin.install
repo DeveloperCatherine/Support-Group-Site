@@ -1,0 +1,53 @@
+<?php
+// $Id: $
+
+/**
+ * Implementation of hook_install().
+ */
+function advanced_menu_menu_admin_install() {
+  // Create tables.
+  drupal_install_schema('advanced_menu_menu_admin');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function advanced_menu_menu_admin_uninstall() {
+  // Remove tables.
+  drupal_uninstall_schema('advanced_menu_menu_admin');
+  menu_rebuild();
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function advanced_menu_menu_admin_schema() {
+  $schema['advanced_menu_menu_admin_roles'] = array(
+    'description' => t('Holds permission data for menus'),
+    'fields' => array(
+      'aid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => t('Primary Key: Unique access ID.'),
+      ),
+      'menu_name' => array(
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('The {menu_custom}.menu_name of the menu.'),
+      ),
+      'rid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => t('The {role}.rid to which the permissions are assigned.'),
+      ),
+    ),
+    'primary key' => array('aid'),
+  );
+
+  return $schema;
+}
+

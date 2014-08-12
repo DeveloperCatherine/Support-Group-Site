@@ -1,0 +1,15 @@
+; $Id: $
+name = AM Menu Admin
+description = Allows menus to be administered based on roles in addition to permissions.
+package = Advanced Menu
+dependencies[] = menu
+dependencies[] = advanced_menu_core
+core = 6.x
+
+
+; Information added by drupal.org packaging script on 2011-11-08
+version = "6.x-3.1"
+core = "6.x"
+project = "advanced_menu"
+datestamp = "1320747328"
+

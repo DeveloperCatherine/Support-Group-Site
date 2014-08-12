@@ -1,0 +1,15 @@
+; $Id: $
+name = AM Menu Attributes
+description = Adds additional attribute fields to menu items.
+package = Advanced Menu
+dependencies[] = menu
+dependencies[] = advanced_menu_core
+core = 6.x
+
+
+; Information added by drupal.org packaging script on 2011-11-08
+version = "6.x-3.1"
+core = "6.x"
+project = "advanced_menu"
+datestamp = "1320747328"
+

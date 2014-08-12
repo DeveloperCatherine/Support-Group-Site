@@ -1,0 +1,11 @@
+name = Node Limit
+description = Allows admins to restrict the number of nodes that may be created.
+package = Node Limit
+core = 6.x
+
+; Information added by drupal.org packaging script on 2013-10-01
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "node_limit"
+datestamp = "1380594256"
+
