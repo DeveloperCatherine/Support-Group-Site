@@ -17,6 +17,8 @@ body {
 }
 
 #page-wrapper {
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 #page {
@@ -74,8 +76,8 @@ body {
 h1#site-name,
 div#site-name /* The name of the website */ {
   margin: 0;
-  font-size: 2em;
-  line-height: 1.3em;
+  font: 2em "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  line-height: 80px;
 }
 
 #site-name a:link,
@@ -86,7 +88,7 @@ div#site-name /* The name of the website */ {
 
 #site-name a:hover,
 #site-name a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #site-slogan /* The slogan (or tagline) of a website */ {
@@ -248,6 +250,7 @@ ul.links li {
 
 #footer-message /* Wrapper for the footer message from Drupal's "Site information"
                    and for any blocks placed in the footer region */ {
+  text-align: center;
 }
 
 .region-footer {
