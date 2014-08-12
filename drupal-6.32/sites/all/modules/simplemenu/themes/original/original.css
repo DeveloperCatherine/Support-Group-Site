@@ -1,13 +1,13 @@
 
 .simplemenu-block {
-  height: 21px;
+  height: 50px;
 }
 #simplemenu {
-  background: #ddd;
-  border-bottom: 1px solid #999;
+  background: #242d3a;
   color: #333;
-  font: 11px Verdana, Helvetica, sans-serif;
+  font: 11px "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
   width: 100%;
+  height: 50px;
   text-align: left;
 }
 #simplemenu .simplemenu-separator {
@@ -20,32 +20,33 @@
   height: 2px;
 }
 #simplemenu a {
-  color: #333;
+  color: #ddd;
   text-decoration: none;
-  background: #ddd;
-  border-right: 1px solid #999;
-  border-left: 1px solid #eee;
-  padding: 2px 6px 3px 6px;
+  line-height: 50px;
+  background: #242d3a;
+  /*border-right: 1px solid #999;*/
+  /*border-left: 1px solid #eee;*/
+  padding: 0 10px;
   width: auto;
 }
 #simplemenu li {
-  background: #ddd;
+  background: #242d3a;
   text-align: left;
 }
 #simplemenu li.expanded > a {
-  background: url(right-green.gif) no-repeat 97%;
+  /*background: url(right-green.gif) no-repeat 97%;*/
   padding-right: 2em;
 }
 #simplemenu li.root > a {
   font-weight: 700;
-  background: url(down-green.gif) no-repeat 97%;
+  /*background: url(down-green.gif) no-repeat 97%;*/
 }
 #simplemenu li:hover,
 #simplemenu li.sfHover,
 #simplemenu a:focus,
 #simplemenu a:hover,
 #simplemenu a:active {
-  background: #3875d7;
+  background: #415366;
   color: #fff;
 }
 #simplemenu li:hover .simplemenu-separator,
@@ -58,7 +59,9 @@ ul#simplemenu li.sfHover ul {
   border-bottom: 1px solid #999;
 }
 #simplemenu li ul a {
-  height: auto;
+  /*height: auto;*/
+  height: 30px;
+  line-height: 30px;
 }
 
 /* vim: ts=2 sw=2 et syntax=css
