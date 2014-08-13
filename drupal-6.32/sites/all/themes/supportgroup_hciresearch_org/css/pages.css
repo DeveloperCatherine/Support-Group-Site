@@ -17,6 +17,7 @@ body {
 }
 
 #page-wrapper {
+  background-color: #f0f0f0;
 }
 
 #page {
@@ -53,6 +54,8 @@ body {
  * Header
  */
 #header {
+  background-color: #fff;
+  width: 100%;
 }
 
 #header .section {
@@ -74,8 +77,8 @@ body {
 h1#site-name,
 div#site-name /* The name of the website */ {
   margin: 0;
-  font-size: 2em;
-  line-height: 1.3em;
+  font: 2em "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+  line-height: 80px;
 }
 
 #site-name a:link,
@@ -86,7 +89,7 @@ div#site-name /* The name of the website */ {
 
 #site-name a:hover,
 #site-name a:focus {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 #site-slogan /* The slogan (or tagline) of a website */ {
@@ -99,6 +102,7 @@ div#site-name /* The name of the website */ {
  * Main (container for everything else)
  */
 #main-wrapper {
+  padding: 20px 80px 30px 80px;
 }
 
 #main {
@@ -120,6 +124,7 @@ div#site-name /* The name of the website */ {
 }
 
 .breadcrumb /* The path to the current page in the form of a list of links */ {
+  line-height: 30px;
   padding-bottom: 0; /* Undo system.css */
 }
 
@@ -130,11 +135,16 @@ h3.title /* Comment title */ {
 }
 
 tr.even /* Some tables have rows marked even or odd. */ {
-  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+   background-color: #E1E0E3;  /* Drupal core uses a #eee background */
 }
 
 tr.odd {
-  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+   background-color: #FCFCFC;  /* Drupal core uses a #eee background */
+}
+
+thead {
+  background-color: #B6B5BC;
+  line-height: 40px;
 }
 
 div.messages /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */ {
@@ -173,6 +183,7 @@ div.tabs /* See also the tabs.css file. */ {
 }
 
 #content-area /* Wrapper for the actual page content */ {
+  border-top: 2px dotted #ddd;
 }
 
 ul.links /* List of links */ {
@@ -188,7 +199,7 @@ ul.links.inline {
 ul.links li {
   display: inline;
   list-style-type: none;
-  padding: 0 0.5em;
+  padding: 0 0em;
 }
 
 .pager /* A list of page numbers when more than 1 page of content is available */ {
@@ -248,6 +259,7 @@ ul.links li {
 
 #footer-message /* Wrapper for the footer message from Drupal's "Site information"
                    and for any blocks placed in the footer region */ {
+  text-align: center;
 }
 
 .region-footer {

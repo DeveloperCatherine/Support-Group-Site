@@ -77,7 +77,8 @@ fieldset {
 
    */
 
-  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  color: #444;
 }
 
 pre,
@@ -212,16 +213,23 @@ dd {
  * http://meyerweb.com/eric/thoughts/2007/06/11/who-ordered-the-link-states
  */
 a:link {
+  color: #888;
+  text-decoration: none;
 }
 
 a:visited {
+  color: #888;
+  text-decoration: none;
 }
 
 a:hover,
 a:focus {
+  color: #444;
+  text-decoration: none;
 }
 
 a:active {
+  text-decoration: none;
 }
 
 /*
@@ -238,8 +246,9 @@ table {
 th,
 thead th,
 tbody th {
+  color: #fff;
   text-align: left; /* LTR */
-  padding: 0;
+  padding: 0 12px;
   border-bottom: none;
 }
 
