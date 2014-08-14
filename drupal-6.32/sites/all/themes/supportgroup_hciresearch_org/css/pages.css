@@ -59,7 +59,11 @@ body {
 }
 
 #header .section {
-  margin: 0 67px;
+  /*margin: 0 67px;*/
+  position: relative;
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 0;
 }
 
 #logo /* Wrapping link for logo */ {
@@ -103,7 +107,11 @@ div#site-name /* The name of the website */ {
  * Main (container for everything else)
  */
 #main-wrapper {
-  padding: 20px 80px 30px 80px;
+  position: relative;
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 0;
+  /*padding: 20px 80px 30px 80px;*/
 }
 
 #main {
@@ -130,8 +138,9 @@ div#site-name /* The name of the website */ {
 }
 
 h1.title /* The title of the page */ {
-  margin: 5px 0;
   font-size: 20px;
+  padding: 5px 0;
+  border-bottom: 2px dotted #ddd;
 }
 
 h2.title /* Block title or the title of a piece of content when it is given in a list of content */ {
@@ -192,7 +201,6 @@ div.tabs /* See also the tabs.css file. */ {
 }
 
 #content-area /* Wrapper for the actual page content */ {
-  border-top: 2px dotted #ddd;
 }
 
 ul.links /* List of links */ {
