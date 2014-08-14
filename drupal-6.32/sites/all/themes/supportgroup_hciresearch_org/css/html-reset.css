@@ -91,8 +91,7 @@ code {
  * Headings
  */
 h1 {
-  font-size: 2em;
-  line-height: 1.3em;
+  line-height: 1.6em;
   margin-top: 0;
   margin-bottom: 0.5em; /* 0.5em is equavalent to 1em in the page's base font.
                            Remember, a margin specified in ems is relative to
@@ -223,12 +222,9 @@ a:visited {
 }
 
 a:hover,
-a:focus {
-  color: #444;
-  text-decoration: none;
-}
-
+a:focus,
 a:active {
+  color: #444;
   text-decoration: none;
 }
 
@@ -240,7 +236,7 @@ a:active {
  */
 table {
   border-collapse: collapse;
-  /* width: 100%; */ /* Prevent cramped-looking tables */
+  width: 100%;  /* Prevent cramped-looking tables */
 }
 
 th,
@@ -249,7 +245,25 @@ tbody th {
   color: #fff;
   text-align: left; /* LTR */
   padding: 0 12px;
+  white-space: nowrap;
   border-bottom: none;
+}
+
+thead th a:link,
+thead th a:visited /* Override a:link, a:visited */ {
+  color: #FBFBFA;
+}
+
+thead th a:hover,
+thead th a:focus,
+thead th a:active /* Override a:hover, a:focus, a:active; */ {
+  color: #555;
+}
+
+th.active img /* Override system.css th.active img */ {
+  display: inline;
+  white-space: nowrap;
+  margin-left: 5px;
 }
 
 tbody {

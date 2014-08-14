@@ -81,12 +81,12 @@ body {
 
 .sidebar-second #content .section {
   padding-left: 0; /* LTR */
-  padding-right: 200px; /* LTR */ /* The width + right margin of .region-sidebar-second. */
+  padding-right: 250px; /* LTR */ /* The width + right margin of .region-sidebar-second. */
 }
 
 .two-sidebars #content .section {
   padding-left: 200px; /* The width + left margin of .region-sidebar-first. */
-  padding-right: 200px; /* The width + right margin of .region-sidebar-second. */
+  padding-right: 250px; /* The width + right margin of .region-sidebar-second. */
 }
 
 /*
@@ -144,14 +144,14 @@ body {
  */
 .region-sidebar-second {
   float: right; /* LTR */
-  width: 200px;
-  margin-left: -200px; /* LTR */ /* Negative value of .region-sidebar-second's width + right margin. */
+  width: 230px;
+  margin-left: -230px; /* LTR */ /* Negative value of .region-sidebar-second's width + right margin. */
   margin-right: 0; /* LTR */
   padding: 0; /* DO NOT CHANGE. Add padding or margin to .region-sidebar-second .section. */
 }
 
 .region-sidebar-second .section {
-  margin: 0 0 0 20px; /* LTR */
+  margin: 40px 0 0 20px; /* LTR */
   padding: 0;
 }
 
