@@ -208,6 +208,7 @@ ul.links li {
   display: inline;
   list-style-type: none;
   padding: 0 0em;
+  margin-right: 12px;
 }
 
 .pager /* A list of page numbers when more than 1 page of content is available */ {
@@ -219,6 +220,7 @@ ul.links li {
 .pager a,
 .pager strong.pager-current /* Each page number in the pager list */ {
   padding: 0.5em;
+  color: #4083a9;
 }
 
 .feed-icons /* The links to the RSS or Atom feeds for the current list of content */ {
@@ -285,7 +287,7 @@ ul#simplemenu li.sfHover ul {
 #forum .description {
   font-size: 0.9em;
   margin: 5px 0;
-  color: #aaa;
+  color: #ababab;
 }
 
 #forum tr td.forum {
