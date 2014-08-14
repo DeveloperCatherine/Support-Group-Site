@@ -59,6 +59,7 @@ body {
 }
 
 #header .section {
+  margin: 0 67px;
 }
 
 #logo /* Wrapping link for logo */ {
@@ -208,7 +209,7 @@ ul.links li {
   display: inline;
   list-style-type: none;
   padding: 0 0em;
-  margin-right: 12px;
+  margin-right: 1em;
 }
 
 .pager /* A list of page numbers when more than 1 page of content is available */ {
@@ -262,9 +263,8 @@ ul.links li {
  * Footer
  */
 #footer {
-}
-
-#footer .section {
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
 }
 
 #footer-message /* Wrapper for the footer message from Drupal's "Site information"
@@ -272,8 +272,31 @@ ul.links li {
   text-align: center;
 }
 
+#footer .section {
+  text-align: center;
+  color: #ababab;
+}
+
+#footer ul.links a:link,
+#footer ul.links a:visited {
+  color: #4083a9;
+}
+
+#footer ul.links a:hover,
+#footer ul.links a:active {
+  color: #205f82;
+}
+
+#footer ul.links li{
+  margin: 1em;
+}
+
+#copy-right {
+  font-size: 12px;
+} 
+
 /*
- * Simple Menu
+ * Simple Menu override
  */
 #simplemenu li:hover ul,
 ul#simplemenu li.sfHover ul {
@@ -283,6 +306,7 @@ ul#simplemenu li.sfHover ul {
 
 /*
  * Forum
+ * Override forum.css in module/forum
  */
 #forum .description {
   font-size: 0.9em;
@@ -305,6 +329,16 @@ ul#simplemenu li.sfHover ul {
 #forum div.indent {
   margin-left: 22px;
 }
+
+.forum-topic-navigation {
+  /*padding: 1em 0 0 3em;*/
+  border-top: 1px dashed #ddd;
+  border-bottom: 1px dashed #ddd;
+  text-align: center;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+
 
 .region-footer {
 }

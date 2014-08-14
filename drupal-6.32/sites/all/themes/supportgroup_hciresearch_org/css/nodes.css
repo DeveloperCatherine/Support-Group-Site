@@ -7,7 +7,7 @@
 
 
 .node /* Node wrapper */ {
-  margin: 0.5em 0;
+  margin: 0.5em 0 1.5em 0;
 }
 
 .node-sticky /* A sticky node (displayed before others in a list) */ {
@@ -82,12 +82,14 @@
 
 .node .submitted /* The "posted by" information */ {
   color: #ababab;
+  margin-right: 1em;
 }
 
 .node .terms /* Node terms (taxonomy) */ {
 }
 
 .node .content /* Node's content wrapper */ {
+  margin: 1em 0;
 }
 
 .node ul.links /* Node links. See also the ul.links declaration in the pages.css. */ {

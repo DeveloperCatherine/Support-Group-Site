@@ -5,12 +5,12 @@
 
 
 #comments /* Wrapper for the list of comments and its title */ {
-  margin: 1em 0;
+  padding-top: 0.5em;
   border-top: 2px dotted #ddd;
 }
 
 #comments h2.title /* Heading for the list of comments */ {
-  padding: 0.5em 0;
+  padding-bottom: 0.5em;
 }
 
 .comment /* Wrapper for a single comment */ {
