@@ -5,10 +5,12 @@
 
 
 #comments /* Wrapper for the list of comments and its title */ {
-  margin: 1em 0;
+  padding-top: 0.5em;
+  border-top: 2px dotted #ddd;
 }
 
 #comments h2.title /* Heading for the list of comments */ {
+  padding-bottom: 0.5em;
 }
 
 .comment /* Wrapper for a single comment */ {
@@ -48,7 +50,17 @@
 .comment-by-viewer /* A comment created by the current user */ {
 }
 
-.comment h3.title /* Comment title */ {
+/* 
+ * Comment title
+ */
+.comment h3.title a:link,
+.comment h3.title a:visited {
+  color: #4083a9;
+}
+
+.comment h3.title a:hover,
+.comment h3.title a:active {
+  color: #205f82;
 }
 
 .new /* "New" marker for comments that are new for the current user */ {
@@ -59,6 +71,7 @@
 }
 
 .comment .submitted /* The "posted by" information */ {
+  color: #ababab;
 }
 
 .comment .content /* Comment's content wrapper */ {

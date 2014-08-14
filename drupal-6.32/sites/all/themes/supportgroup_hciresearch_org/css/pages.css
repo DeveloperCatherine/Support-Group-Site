@@ -59,6 +59,7 @@ body {
 }
 
 #header .section {
+  margin: 0 67px;
 }
 
 #logo /* Wrapping link for logo */ {
@@ -128,10 +129,18 @@ div#site-name /* The name of the website */ {
   padding-bottom: 0; /* Undo system.css */
 }
 
-h1.title, /* The title of the page */
-h2.title, /* Block title or the title of a piece of content when it is given in a list of content */
+h1.title /* The title of the page */ {
+  margin: 5px 0;
+  font-size: 20px;
+}
+
+h2.title /* Block title or the title of a piece of content when it is given in a list of content */ {
+  margin: 0;
+  font-size: 16px;
+}
 h3.title /* Comment title */ {
   margin: 0;
+  font-size: 14px;
 }
 
 tr.even /* Some tables have rows marked even or odd. */ {
@@ -200,6 +209,7 @@ ul.links li {
   display: inline;
   list-style-type: none;
   padding: 0 0em;
+  margin-right: 1em;
 }
 
 .pager /* A list of page numbers when more than 1 page of content is available */ {
@@ -211,6 +221,7 @@ ul.links li {
 .pager a,
 .pager strong.pager-current /* Each page number in the pager list */ {
   padding: 0.5em;
+  color: #4083a9;
 }
 
 .feed-icons /* The links to the RSS or Atom feeds for the current list of content */ {
@@ -252,15 +263,82 @@ ul.links li {
  * Footer
  */
 #footer {
-}
-
-#footer .section {
+  border-top: 1px solid #e5e5e5;
+  background-color: #fff;
 }
 
 #footer-message /* Wrapper for the footer message from Drupal's "Site information"
                    and for any blocks placed in the footer region */ {
   text-align: center;
 }
+
+#footer .section {
+  text-align: center;
+  color: #ababab;
+}
+
+#footer ul.links a:link,
+#footer ul.links a:visited {
+  color: #4083a9;
+}
+
+#footer ul.links a:hover,
+#footer ul.links a:active {
+  color: #205f82;
+}
+
+#footer ul.links li{
+  margin: 1em;
+}
+
+#copy-right {
+  font-size: 12px;
+} 
+
+/*
+ * Simple Menu override
+ */
+#simplemenu li:hover ul,
+ul#simplemenu li.sfHover ul {
+  left: 0px;
+  top: 50px;
+}
+
+/*
+ * Forum
+ * Override forum.css in module/forum
+ */
+#forum .description {
+  font-size: 0.9em;
+  margin: 5px 0;
+  color: #ababab;
+}
+
+#forum tr td.forum {
+  /*padding-left: 25px; /* LTR */
+  /*background-position: 2px 2px; /* LTR */
+  background-image: none;
+  /*background-repeat: no-repeat;*/
+  padding: 5px 12px;
+}
+
+#forum td {
+  padding: 5px 12px;
+}
+
+#forum div.indent {
+  margin-left: 22px;
+}
+
+.forum-topic-navigation {
+  /*padding: 1em 0 0 3em;*/
+  border-top: 1px dashed #ddd;
+  border-bottom: 1px dashed #ddd;
+  text-align: center;
+  padding: 0.5em;
+  margin-top: 1em;
+}
+
 
 .region-footer {
 }
