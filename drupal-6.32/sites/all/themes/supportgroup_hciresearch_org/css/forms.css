@@ -40,6 +40,12 @@
 }
 
 .form-submit /* The submit button */ {
+  border-radius: 5px;
+  background-color: #4083a9;
+  border: 1px outset buttonface;
+  color: #fff;
+  min-width: 60px;
+  min-height: 22px;
 }
 
 .container-inline div,
