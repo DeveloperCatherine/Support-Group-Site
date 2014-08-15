@@ -135,7 +135,7 @@ body {
 }
 
 .region-sidebar-first .section {
-  margin: 0 20px 0 0; /* LTR */
+  margin: 12px 20px 0 0; /* LTR */
   padding: 0;
 }
 
