@@ -193,7 +193,7 @@ class OpenSlopeOne
     {
         $sql = '
             CREATE PROCEDURE `slope_one`()
-                begin                    
+                begin
                     DECLARE tmp_item_id int;
                     DECLARE done int default 0;                    
                     DECLARE mycursor CURSOR FOR select distinct item_id from oso_user_ratings;
@@ -202,12 +202,13 @@ class OpenSlopeOne
                     while (!done) do
                         fetch mycursor into tmp_item_id;
                         if (!done) then
-                            insert into oso_slope_one (select a.item_id as item_id1,b.item_id as item_id2,count(*) as times, sum(a.rating-b.rating) as rating from oso_user_ratings a,oso_user_ratings b where a.item_id = tmp_item_id and b.item_id != a.item_id and a.user_id=b.user_id group by a.item_id,b.item_id);
+                            insert into oso_slope_one (select a.item_id as item_id1,b.item_id as item_id2,count(*) as times from oso_user_ratings a,oso_user_ratings b where a.item_id = tmp_item_id and b.item_id != a.item_id and a.user_id=b.user_id group by a.item_id,b.item_id);
                         end if;
                     END while;
                     close mycursor;
                 end
         ';
+        // insert into oso_slope_one (select a.item_id as item_id1,b.item_id as item_id2,count(*) as times, sum(a.rating-b.rating) as rating from oso_user_ratings a,oso_user_ratings b where a.item_id = tmp_item_id and b.item_id != a.item_id and a.user_id=b.user_id group by a.item_id,b.item_id);
 	$Database=new DataBase ($this->_config['host'], $this->_config['username'], $this->_config['password'], $this->_config['dbname']);  
 	$Database->Connect(); 
 	$Database->Query=$sql; 
@@ -267,7 +268,8 @@ class OpenSlopeOne
     {
         $sql = 'select item_id2 from oso_slope_one where item_id1 = '
              . $itemId
-             . ' group by item_id2 order by sum(rating/times) limit '
+             // . ' group by item_id2 order by sum(rating/times) limit '
+             . ' group by item_id2 order by sum(times) limit '
              . $limit;
 
 	$Database=new DataBase ($this->_config['host'], $this->_config['username'], $this->_config['password'], $this->_config['dbname']);  
@@ -295,7 +297,8 @@ class OpenSlopeOne
 
         $sql = 'select s.item_id2 from oso_slope_one s,oso_user_ratings u where u.user_id = '
              . $userId
-             . ' and s.item_id1 = u.item_id and s.item_id2 != u.item_id group by s.item_id2 order by sum(u.rating * s.times - s.rating)/sum(s.times) desc limit '
+             // . ' and s.item_id1 = u.item_id and s.item_id2 != u.item_id group by s.item_id2 order by sum(u.rating * s.times - s.rating)/sum(s.times) desc limit '
+             . ' and s.item_id1 = u.item_id and s.item_id2 != u.item_id group by s.item_id2 order by s.times desc limit '
              . $limit;
 	$Database=new DataBase ($this->_config['host'], $this->_config['username'], $this->_config['password'], $this->_config['dbname']);  
 	$Database->Connect(); 
