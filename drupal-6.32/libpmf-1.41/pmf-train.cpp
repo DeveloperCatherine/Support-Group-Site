@@ -11,7 +11,7 @@ void exit_with_help()
 	"options:\n"
 	"    -s type : set type of solver (default 0)\n"    
 	"    	 0 -- CCDR1 with fundec stopping condition\n"    
-	"    -k rank : set the rank (default 10)\n"    
+	"    -k rank : set the rank (default 10)\n"
 	"    -n threads : set the number of threads (default 4)\n"    
 	"    -l lambda : set the regularization parameter lambda (default 0.1)\n"    
 	"    -t max_iter: set the number of iterations (default 5)\n"    

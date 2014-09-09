@@ -52,19 +52,21 @@ int main(int argc, char* argv[]){
 	int rank = W[0].size();
 
 	int i, j;
-	double v, rmse = 0;
+	// double v, rmse = 0;
 	size_t num_insts = 0;
-	while(fscanf(test_fp, "%d %d %lf", &i, &j, &v) != EOF) {
+	// while(fscanf(test_fp, "%d %d %lf", &i, &j, &v) != EOF)
+	while(fscanf(test_fp, "%d %d", &i, &j) != EOF) {
 		double pred_v = 0;
 #pragma omp parallel for  reduction(+:pred_v)
 		for(int t = 0; t < rank; t++)
 			pred_v += W[i-1][t] * H[j-1][t];
-		num_insts ++;
-		rmse += (pred_v - v)*(pred_v - v);
-		fprintf(output_fp, "%lf\n", pred_v);
+		// num_insts ++;
+		// rmse += (pred_v - v)*(pred_v - v);
+		fprintf(output_fp, "%d %d %lf\n", i, j, pred_v);
 	}
-	rmse = sqrt(rmse/num_insts);
-	printf("test RMSE = %g\n", rmse);
+	// rmse = sqrt(rmse/num_insts);
+	// printf("test RMSE = %g\n", rmse);
+	printf("Prediction done!\n");
 
 	return 0;
 }
